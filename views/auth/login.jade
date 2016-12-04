@@ -1,0 +1,20 @@
+.container
+    section.blog-content
+        header.blog-content-header
+            h1.blog-content-title Login
+        section.blog-content-body
+            form.pure-form.pure-form-aligned(method='post', name='loginForm', ng-submit='login(credentials)', novalidate)
+                fieldset
+                    .pure-control-group
+                        label(for='username') Username
+                        input(type='text', name='username', ng-model='credentials.username', required)
+                        span(style='color:red', ng-show='loginForm.username.$dirty && loginForm.username.$invalid')
+                            span(ng-show='loginForm.username.$error.required') Username Required.
+                    .pure-control-group
+                        label(for='password') Password
+                        input(type='password', name='password', ng-model='credentials.password', ng-minlength='6', required)
+                        span(style='color:red', ng-show='loginForm.password.$dirty && loginForm.password.$invalid')
+                            span(ng-show='loginForm.password.$error.required') Password required.
+                            span(ng-show='loginForm.password.$error.minlength') At least 6 characters.
+                    .pure-controls
+                        input.pure-button.button-success(type='submit', value='Login', ng-disabled='loginForm.username.$invalid || loginForm.password.$invalid')

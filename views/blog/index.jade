@@ -1,0 +1,24 @@
+div.container.relative(on-scroll)
+    div.waterfall
+        figure.pin.blog-item
+            a.addBlog(ng-href='/#/blog/create') +
+        figure.pin.blog-item.animate-pop-up(ng-repeat='post in posts')
+            figcaption
+                a(ng-href='/#/blog/show/{{ post._id }}').pure-g
+                    div.pure-u
+                        img.blog-avatar(alt='no image, can talk', height='64', width='64', ng-src='{{ post.user.avatar}}')
+                    div.pure-u-3-4
+                        h5.blog-author {{ post.user.username }}
+                        h4.blog-subject {{ post.title }}
+                        p.blog-desc {{ post.summary }}
+                    div.pure-u-1
+                        img.pinimg(ng-src='{{ post.imgList[0] }}')
+                    div.pure-u-1-2.text-left
+                        span.icon-eye {{ post.viewCount }}
+                    div.pure-u-1-2.text-right
+                        span.icon-thumbs-up-alt {{ post.voteCount }}
+    nav.slideshow(scroll-to)
+        a.nav-prev(ng-click='scrollTo(0)')
+            span.icon-up-open
+        a.nav-next(ng-click='scrollTo(-1)')
+            span.icon-down-open

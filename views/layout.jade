@@ -1,0 +1,39 @@
+doctype html
+html(lang='zh-CN')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name='keywords',content='#{keywords ? keywords : "KW,blog,mean"}')
+        meta(name='description',content='#{description ? description : "blog"}')
+        meta(name='fragment', content='!')
+        base(href='/')
+        link(href='/stylesheets/pure-min.css', rel='stylesheet')
+        link(href='/stylesheets/grids-responsive-min.css', rel='stylesheet')
+        link(href='/fonts/fontello/css/fontello.css', rel='stylesheet')
+        link(href='/stylesheets/side-menu.css', rel='stylesheet')
+        link(href='/stylesheets/nprogress.css', rel='stylesheet')
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        <!--[if IE]>
+        script(type='text/javascript', src='/javascripts/vendor/html5shiv.min.js', charset='utf-8')
+        <![endif]-->
+        script
+            | var clientUser = !{ JSON.stringify(clientUser) || 'null' };window.clientUser = clientUser;
+        title= 'KW-BLOG'
+    body(ng-app='kwblogApp', ng-controller='ApplicationController')
+        
+        block content
+        div(current-message)
+        div(auth-dialog)
+        script(type='text/javascript', src='/javascripts/vendor/nprogress.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/vendor/markdown.min.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/vendor/angular-1.5.0/angular.min.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/vendor/angular-1.5.0/angular-resource.min.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/vendor/angular-1.5.0/angular-route.min.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/vendor/angular-1.5.0/angular-animate.min.js', charset='utf-8')
+        
+        script(type='text/javascript', src='/javascripts/configs/configs.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/services/services.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/directives/directives.js', charset='utf-8')
+        script(type='text/javascript', src='/javascripts/controllers/controllers.js', charset='utf-8')
